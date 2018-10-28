@@ -54,7 +54,7 @@ Assuming that you're using [npm](https://www.npmjs.com/) as your package manager
 npm install daux
 ```
 
-If you're not using any module bundler, you can use the precompiled production and development [UMD](https://github.com/umdjs/umd) builds in the `dist` folder. For this build, `Daux` would be available as a `window.Daux` global variable. You can download it in the [releases](https://github.com/dauxjs/daux/releases) page.
+If you're not using any module bundler, you can use the precompiled production and development [UMD](https://github.com/umdjs/umd) builds in the `dist` folder. For this build, `Daux` would be available as a `window.Daux` global variable. You can download the files at [unpkg](https://unpkg.com/daux/).
 
 ## Usage
 
