@@ -12,11 +12,11 @@
   ],
   "scripts": {
     "clean": "rimraf dist es lib tmp",
-    "prepare": "npm run clean",
-    "build": "npm run prepare && rollup -c",
+    "build": "rollup -c",
     "lint": "eslint *.js src/**/*.js",
     "qunit": "babel src --out-dir tmp/src && babel tests --out-dir tmp/tests && qunit tmp/**/*-test.js",
-    "test": "npm-run-all --continue-on-error prepare lint qunit"
+    "test": "npm-run-all --continue-on-error lint qunit",
+    "prepare": "npm run clean && npm test && npm run build"
   },
   "repository": {
     "type": "git",
