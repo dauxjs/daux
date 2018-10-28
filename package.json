@@ -1,0 +1,57 @@
+{
+  "name": "daux",
+  "version": "0.0.1",
+  "description": "An immutable model-based state management solution for your JavaScript app",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf dist es lib tmp",
+    "prepare": "npm run clean",
+    "build": "npm run prepare && rollup -c",
+    "lint": "eslint *.js src/**/*.js",
+    "qunit": "babel src --out-dir tmp/src && babel tests --out-dir tmp/tests && qunit tmp/**/*-test.js",
+    "test": "npm-run-all --continue-on-error prepare lint qunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dauxjs/daux.git"
+  },
+  "keywords": [
+    "daux",
+    "state",
+    "immutable"
+  ],
+  "author": "Mikko Paderes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dauxjs/daux/issues"
+  },
+  "homepage": "https://github.com/dauxjs/daux#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-rmmmp": "^0.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "npm-run-all": "^4.1.3",
+    "qunit": "^2.7.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-terser": "^3.0.0",
+    "sinon": "^7.1.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
+  }
+}
