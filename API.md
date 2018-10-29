@@ -27,6 +27,21 @@
 
 ## Daux.Core.Batch
 
+Batch is used for performing multiple state operations in one go. This means that the subscription callbacks will only get triggered once when batching operations.
+
+```javascript
+import { Store } from 'daux';
+
+import User from './models/user';
+
+const store = new Store({ user: User });
+const batch = store.batch();
+
+batch.set('user', { id: 'user_a', name: 'User A' });
+batch.set('user', { id: 'user_b', name: 'User B' });
+batch.commit();
+```
+
 ### Functions
 
 #### commit
@@ -78,6 +93,8 @@ Batch an update operation
 | record | Object |            |             |
 
 ## Daux.Core.Model
+
+The model is a blueprint on how Daux will represent the your app's underlying data.
 
 ### Static Properties
 
@@ -139,6 +156,11 @@ Deserialized record
 Type: Object
 
 ## Daux.Core.Store
+
+The store is used for:
+
+- Holding your app's states as well as doing CRUD operations against them
+- Register listeners that gets fired whenever a state changes
 
 ### Functions
 
