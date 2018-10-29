@@ -14,7 +14,7 @@
     "clean": "rimraf dist es lib tmp",
     "build": "rollup -c",
     "lint": "eslint *.js src/**/*.js",
-    "qunit": "babel src --out-dir tmp/src && babel tests --out-dir tmp/tests && qunit tmp/**/*-test.js",
+    "qunit": "babel src --out-dir tmp && qunit tmp/**/*-test.js",
     "test": "npm-run-all --continue-on-error lint qunit",
     "prepare": "npm run clean && npm test && npm run build"
   },

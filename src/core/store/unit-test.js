@@ -1,14 +1,14 @@
 import QUnit, { module, test } from 'qunit';
 import sinon from 'sinon';
 
-import Batch from '../../../src/core/batch';
-import Store from '../../../src/core/store';
-import model from '../../helpers/model';
+import Batch from '../batch';
+import Store from '.';
+import model from '../../utils/test-helpers/model';
 
-module('Unit | Core | store', function () {
+module('Unit | Core | store', () => {
   QUnit.dump.maxDepth = 10;
 
-  test('should set record without relationship', async function (assert) {
+  test('should set record without relationship', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -30,7 +30,7 @@ module('Unit | Core | store', function () {
     });
   });
 
-  test('should set record with embedded relationship', async function (assert) {
+  test('should set record with embedded relationship', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -127,7 +127,7 @@ module('Unit | Core | store', function () {
     });
   });
 
-  test('should set record with non-embedded relationship', async function (assert) {
+  test('should set record with non-embedded relationship', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -213,7 +213,7 @@ module('Unit | Core | store', function () {
     });
   });
 
-  test('should not set record when deserialization returns nothing', async function (assert) {
+  test('should not set record when deserialization returns nothing', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -226,7 +226,7 @@ module('Unit | Core | store', function () {
     assert.equal(await store.get('user', 'user_a'), null);
   });
 
-  test('should throw error when setting a record without ID', function (assert) {
+  test('should throw error when setting a record without ID', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -241,7 +241,7 @@ module('Unit | Core | store', function () {
     }
   });
 
-  test('should sync new one-to-one relationship when setting record', async function (assert) {
+  test('should sync new one-to-one relationship when setting record', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -286,7 +286,7 @@ module('Unit | Core | store', function () {
     assert.equal(username.user.id, 'user_a');
   });
 
-  test('should sync new one-to-many relationship when setting record', async function (assert) {
+  test('should sync new one-to-many relationship when setting record', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -334,7 +334,7 @@ module('Unit | Core | store', function () {
     assert.equal(post.author.id, 'user_a');
   });
 
-  test('should sync new many-to-many relationship when setting record', async function (assert) {
+  test('should sync new many-to-many relationship when setting record', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -384,7 +384,7 @@ module('Unit | Core | store', function () {
     assert.equal(group.members[0].id, 'user_a');
   });
 
-  test('should trigger subscription when setting record', function (assert) {
+  test('should trigger subscription when setting record', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -400,7 +400,7 @@ module('Unit | Core | store', function () {
     assert.ok(stub.calledOnce);
   });
 
-  test('should not trigger subscription when setting record with a true background operation option', function (assert) {
+  test('should not trigger subscription when setting record with a true background operation option', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -416,7 +416,7 @@ module('Unit | Core | store', function () {
     assert.ok(stub.notCalled);
   });
 
-  test('should call set when updating record', function (assert) {
+  test('should call set when updating record', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -441,7 +441,7 @@ module('Unit | Core | store', function () {
     }, { isBackgroundOperation: true, isDeserialized: true }));
   });
 
-  test('throw error when updating a record that does not exist', function (assert) {
+  test('throw error when updating a record that does not exist', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -456,7 +456,7 @@ module('Unit | Core | store', function () {
     }
   });
 
-  test('should sync removed one-to-one relationship when updating record', async function (assert) {
+  test('should sync removed one-to-one relationship when updating record', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -486,7 +486,7 @@ module('Unit | Core | store', function () {
     assert.equal(await store.get('username', 'username_a').user, null);
   });
 
-  test('should sync removed one-to-many relationship when setting record', async function (assert) {
+  test('should sync removed one-to-many relationship when setting record', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -519,7 +519,7 @@ module('Unit | Core | store', function () {
     assert.equal(post.author, null);
   });
 
-  test('should sync removed many-to-many relationship when setting record', async function (assert) {
+  test('should sync removed many-to-many relationship when setting record', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -552,7 +552,7 @@ module('Unit | Core | store', function () {
     assert.deepEqual(group.members, []);
   });
 
-  test('should trigger subscription when updating record', function (assert) {
+  test('should trigger subscription when updating record', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -569,7 +569,7 @@ module('Unit | Core | store', function () {
     assert.ok(stub.calledOnce);
   });
 
-  test('should not trigger subscription when updating record with a true background operation option', function (assert) {
+  test('should not trigger subscription when updating record with a true background operation option', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -586,7 +586,7 @@ module('Unit | Core | store', function () {
     assert.ok(stub.notCalled);
   });
 
-  test('should call update when deleting record', function (assert) {
+  test('should call update when deleting record', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -610,7 +610,7 @@ module('Unit | Core | store', function () {
     }, { isBackgroundOperation: true }));
   });
 
-  test('should delete a record for a model type', async function (assert) {
+  test('should delete a record for a model type', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -625,7 +625,7 @@ module('Unit | Core | store', function () {
     assert.equal(await store.get('user', 'user_a'), null);
   });
 
-  test('should trigger subscription when deleting record', function (assert) {
+  test('should trigger subscription when deleting record', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -642,7 +642,7 @@ module('Unit | Core | store', function () {
     assert.ok(stub.calledOnce);
   });
 
-  test('should not trigger subscription when deleting record with a true background operation option', function (assert) {
+  test('should not trigger subscription when deleting record with a true background operation option', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -659,7 +659,7 @@ module('Unit | Core | store', function () {
     assert.ok(stub.notCalled);
   });
 
-  test('should not trigger subscription when unsubscribing', function (assert) {
+  test('should not trigger subscription when unsubscribing', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -676,7 +676,7 @@ module('Unit | Core | store', function () {
     assert.ok(stub.notCalled);
   });
 
-  test('should return an instance of Daux.Core.Batch when calling batch', function (assert) {
+  test('should return an instance of Daux.Core.Batch when calling batch', (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -689,7 +689,7 @@ module('Unit | Core | store', function () {
     assert.ok(result instanceof Batch);
   });
 
-  test('should get record for a model type using cache', async function (assert) {
+  test('should get record for a model type using cache', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -716,7 +716,7 @@ module('Unit | Core | store', function () {
     });
   });
 
-  test('should call set when getting a non-cached record using a promise', async function (assert) {
+  test('should call set when getting a non-cached record using a promise', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -735,7 +735,7 @@ module('Unit | Core | store', function () {
     assert.ok(setSpy.calledWithExactly('user', user, { isBackgroundOperation: true }));
   });
 
-  test('should call set when getting a cached but unpopulated record using a promise', async function (assert) {
+  test('should call set when getting a cached but unpopulated record using a promise', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -756,7 +756,7 @@ module('Unit | Core | store', function () {
     assert.ok(setSpy.calledWithExactly('user', user, { isBackgroundOperation: true }));
   });
 
-  test('should get record for a model type using a promise', async function (assert) {
+  test('should get record for a model type using a promise', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -783,7 +783,7 @@ module('Unit | Core | store', function () {
     });
   });
 
-  test('should not get record for a model type using a promise that resolves to nothing', async function (assert) {
+  test('should not get record for a model type using a promise that resolves to nothing', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -800,7 +800,7 @@ module('Unit | Core | store', function () {
     assert.equal(result, null);
   });
 
-  test('should get record for a model type while including it\'s relationships using a promise', async function (assert) {
+  test('should get record for a model type while including it\'s relationships using a promise', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -910,7 +910,7 @@ module('Unit | Core | store', function () {
     });
   });
 
-  test('should call set per every record when getting all for a model type using a promise', async function (assert) {
+  test('should call set per every record when getting all for a model type using a promise', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -934,7 +934,7 @@ module('Unit | Core | store', function () {
     }));
   });
 
-  test('should call get per every record when getting all for a model type using a promise', async function (assert) {
+  test('should call get per every record when getting all for a model type using a promise', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -961,7 +961,7 @@ module('Unit | Core | store', function () {
     assert.ok(getStub.secondCall.calledWithExactly('user', 'user_b', { include }));
   });
 
-  test('should get all record for a model type using a promise', async function (assert) {
+  test('should get all record for a model type using a promise', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -1000,7 +1000,7 @@ module('Unit | Core | store', function () {
     ]);
   });
 
-  test('should get all record for a model type while including relationships using a promise', async function (assert) {
+  test('should get all record for a model type while including relationships using a promise', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -1045,7 +1045,7 @@ module('Unit | Core | store', function () {
     ]);
   });
 
-  test('should call set per every record when querying for a model type using a promise', async function (assert) {
+  test('should call set per every record when querying for a model type using a promise', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -1069,7 +1069,7 @@ module('Unit | Core | store', function () {
     }));
   });
 
-  test('should call get per every record when querying for a model type using a promise', async function (assert) {
+  test('should call get per every record when querying for a model type using a promise', async (assert) => {
     assert.expect(2);
 
     // Arrange
@@ -1096,7 +1096,7 @@ module('Unit | Core | store', function () {
     assert.ok(getStub.secondCall.calledWithExactly('user', 'user_b', { include }));
   });
 
-  test('should query records for a model type using a promise', async function (assert) {
+  test('should query records for a model type using a promise', async (assert) => {
     assert.expect(1);
 
     // Arrange
@@ -1135,7 +1135,7 @@ module('Unit | Core | store', function () {
     ]);
   });
 
-  test('should query records for a model type while including relationships using a promise', async function (assert) {
+  test('should query records for a model type while including relationships using a promise', async (assert) => {
     assert.expect(1);
 
     // Arrange

@@ -1,11 +1,11 @@
 import { module, test } from 'qunit';
 
-import getDefaultRecord from '../../../src/utils/get-default-record';
-import model from '../../helpers/model';
+import getDefaultRecord from '.';
+import model from '../test-helpers/model';
 
-module('Unit | Utility | get-default-record', function () {
-  module('function: getDefaultRecord', function () {
-    test('should return the default record for a model', function (assert) {
+module('Unit | Utility | get-default-record', () => {
+  module('function: getDefaultRecord', () => {
+    test('should return the default record for a model', (assert) => {
       assert.expect(1);
 
       // Act
