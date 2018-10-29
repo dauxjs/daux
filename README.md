@@ -99,6 +99,7 @@ class User extends Model {
     const deserializedRecord = {};
 
     Object.keys(record).forEach((key) => {
+      // Use name instead of display_name to match the model attributes
       if (key === 'display_name') {
         deserializedRecord['name'] = record[key];
       }
@@ -141,6 +142,16 @@ async function createUser(newUser) {
   });
   store.set('user', newUser);
 }
+```
+
+### Subscribing to state changes
+
+```javascript
+// Log "Foo" everytime a state changes
+const unsubscribe = store.subscribe(() => console.log('Foo'));
+
+// Stop listening to state changes
+unsubscribe();
 ```
 
 ## Contributing
