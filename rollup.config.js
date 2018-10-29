@@ -10,6 +10,7 @@ export default [
     output: { file: 'lib/daux.js', format: 'cjs' },
     plugins: [
       resolve(),
+      commonjs(),
       babel({
         exclude: 'node_modules/**',
       }),
@@ -22,6 +23,7 @@ export default [
     output: { file: 'es/daux.js', format: 'es' },
     plugins: [
       resolve(),
+      commonjs(),
       babel({
         exclude: 'node_modules/**',
       }),
