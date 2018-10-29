@@ -2,8 +2,8 @@
   "name": "daux",
   "version": "0.0.2",
   "description": "An immutable model-based state management solution for your JavaScript app",
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "main": "lib/daux.js",
+  "module": "es/daux.js",
   "files": [
     "dist",
     "es",
