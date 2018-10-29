@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 import getCardinality from '.';
 import model from '../test-helpers/model';
 
-module('Unit | Core | get-cardinality', () => {
+module('Unit | Util | get-cardinality', () => {
   module('function: getCardinality', () => {
     test('should return oneToMany when relationship is belongsTo-hasMany', (assert) => {
       assert.expect(1);
