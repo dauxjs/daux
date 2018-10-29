@@ -1,9 +1,9 @@
 import { module, test } from 'qunit';
 
-import Model from '../../../src/core/model';
+import Model from '.';
 
-module('Unit | Core | model', function () {
-  test('should initialize attributes as an empty array', function (assert) {
+module('Unit | Core | model', () => {
+  test('should initialize attributes as an empty array', (assert) => {
     assert.expect(1);
 
     // Act
@@ -13,7 +13,7 @@ module('Unit | Core | model', function () {
     assert.deepEqual(result, []);
   });
 
-  test('should initialize relationship as an empty object', function (assert) {
+  test('should initialize relationship as an empty object', (assert) => {
     assert.expect(1);
 
     // Act

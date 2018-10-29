@@ -9,6 +9,7 @@ export default [
     input: 'src/index.js',
     output: { file: 'lib/daux.js', format: 'cjs' },
     plugins: [
+      resolve(),
       babel({
         exclude: 'node_modules/**',
       }),
@@ -20,6 +21,7 @@ export default [
     input: 'src/index.js',
     output: { file: 'es/daux.js', format: 'es' },
     plugins: [
+      resolve(),
       babel({
         exclude: 'node_modules/**',
       }),

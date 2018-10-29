@@ -1,7 +1,7 @@
-import Batch from './batch';
-import getCardinality from '../utils/get-cardinality';
-import getDefaultRecord from '../utils/get-default-record';
-import normalize from '../utils/normalize';
+import Batch from '../batch';
+import getCardinality from '../../utils/get-cardinality';
+import getDefaultRecord from '../../utils/get-default-record';
+import normalize from '../../utils/normalize';
 
 /**
  * @class Store

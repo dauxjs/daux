@@ -1,10 +1,10 @@
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
-import Batch from '../../../src/core/batch';
+import Batch from '.';
 
-module('Unit | Core | batch', function () {
-  test('should execute the batched operations sequentially without option', function (assert) {
+module('Unit | Core | batch', () => {
+  test('should execute the batched operations sequentially without option', (assert) => {
     assert.expect(5);
 
     // Arrange
@@ -50,7 +50,7 @@ module('Unit | Core | batch', function () {
     assert.ok(deleteStub.calledAfter(updateStub));
   });
 
-  test('should execute the batched operations sequentially with option', function (assert) {
+  test('should execute the batched operations sequentially with option', (assert) => {
     assert.expect(5);
 
     // Arrange

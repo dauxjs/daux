@@ -1,11 +1,11 @@
 import { module, test } from 'qunit';
 
-import normalize from '../../../src/utils/normalize';
-import model from '../../helpers/model';
+import normalize from '.';
+import model from '../test-helpers/model';
 
-module('Unit | Util | normalize', function () {
-  module('function: normalize', function () {
-    test('should normalize attribute only record', function (assert) {
+module('Unit | Util | normalize', () => {
+  module('function: normalize', () => {
+    test('should normalize attribute only record', (assert) => {
       assert.expect(1);
 
       // Arrange
@@ -32,7 +32,7 @@ module('Unit | Util | normalize', function () {
       });
     });
 
-    test('should normalize record with non-embedded relationship', function (assert) {
+    test('should normalize record with non-embedded relationship', (assert) => {
       assert.expect(1);
 
       // Arrange
@@ -61,7 +61,7 @@ module('Unit | Util | normalize', function () {
       });
     });
 
-    test('should normalize record with embedded relationships', function (assert) {
+    test('should normalize record with embedded relationships', (assert) => {
       assert.expect(1);
 
       // Arrange
