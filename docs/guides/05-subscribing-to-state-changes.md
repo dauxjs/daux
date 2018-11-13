@@ -1,6 +1,6 @@
 # Subscribing to State Changes
 
-In Daux, you can register listeners that'll fire when any model state changes. To do that, you need to use [`Daux.Core.Store.subscribe()](../store.md#subscribe):
+In Daux, you can register listeners that'll fire when any model state changes. To do that, you need to use [`Daux.Core.Store.subscribe()`](../store.md#subscribe):
 
 ```javascript
 store.subscribe(() => console.log('state changed'));

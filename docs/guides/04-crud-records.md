@@ -153,6 +153,8 @@ store.update('user', 'user_1', {
 });
 ```
 
+The [`deserialize`](../api/model.md#deserialize) hook won't fire when we update records so you should just pass-in the flat data that the `Store` expects.
+
 ## Deleting a record
 
 ```javascript
