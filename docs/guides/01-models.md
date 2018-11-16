@@ -95,4 +95,4 @@ Now let's pretend that our API response for fetching a user is this:
 
 Our model has a `name` attribute, not `display_name`. To map the properties correctly, you can use the [`deserialize`](../api/model.md#deserialize) hook to format it to what the `Store` expects.
 
-[Next: Store »](03-store.md)
+[Next: Store »](02-store.md)

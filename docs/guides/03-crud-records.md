@@ -161,4 +161,4 @@ The [`deserialize`](../api/model.md#deserialize) hook won't fire when we update 
 store.delete('user', 'user_1');
 ```
 
-[Next: Subscribing to State Changes »](05-subscribing-to-state-changes.md)
+[Next: Subscribing to State Changes »](04-subscribing-to-state-changes.md)

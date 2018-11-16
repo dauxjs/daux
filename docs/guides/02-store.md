@@ -25,4 +25,4 @@ const store = new Store({
 
 Notice the object keys being passed to the `Store`. These will be used for referencing the model type when doing CRUD operations. More on that in the next guide.
 
-[Next: CRUD Records »](04-crud-records.md)
+[Next: CRUD Records »](03-crud-records.md)
