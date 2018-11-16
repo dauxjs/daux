@@ -21,4 +21,4 @@ const unsubscribe = store.subscribe(() => console.log('state changed'));
 unsubscribe();
 ```
 
-[Next: Batching Operations »](06-batching-operations.md)
+[Next: Batching Operations »](05-batching-operations.md)

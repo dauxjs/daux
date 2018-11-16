@@ -4,6 +4,16 @@ Daux is an immutable model-based state management solution for your JavaScript a
 
 In our apps, we usually have models that represent critical states. For example, in a social network app, they may be users, groups, posts, comments, etc. The non-critical states are the likes of "is this dialog open?". For the former, we'll be using Daux to manage those states.
 
+## Why use Daux?
+
+These model states tend to be complex, repetitive, and problematic to implement. Some of the challenges includes:
+
+- Deserializing our API response
+- Caching the data
+- Maintaining relationships
+
+With Daux, the [`Store`](docs/api/store.md) will be able to do all those for you.
+
 ## Installation
 
 Assuming that you're using [npm](https://www.npmjs.com/) as your package manager:
